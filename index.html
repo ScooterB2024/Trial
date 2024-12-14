@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibration Analysis Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Vibration Analysis Report</h1>
+        <form id="reportForm">
+            <section class="summary-section">
+                <div class="summary-inputs">
+                    <h2>Summary</h2>
+                    <label for="machinesMonitored">Machines Monitored:</label>
+                    <input type="number" id="machinesMonitored" required>
+                    <label for="highAlarm">High Alarm:</label>
+                    <input type="number" id="highAlarm" required>
+                    <label for="mediumAlarm">Medium Alarm:</label>
+                    <input type="number" id="mediumAlarm" required>
+                    <label for="lowAlarm">Low Alarm:</label>
+                    <input type="number" id="lowAlarm" required>
+                    <label for="notAvailable">Not Available:</label>
+                    <input type="number" id="notAvailable" required>
+                </div>
+                <div class="summary-chart">
+                    <canvas id="alarmChart"></canvas>
+                </div>
+            </section>
+            <section>
+                <h2>Findings</h2>
+                <div id="findingsContainer">
+                    <div class="finding">
+                        <div class="finding-top">
+                            <label for="machineId">Machine ID:</label>
+                            <input type="text" class="machineId" required>
+                            <label for="description">Description:</label>
+                            <textarea class="description" required></textarea>
+                        </div>
+                        <label for="recommendedAction">Recommended Action:</label>
+                        <textarea class="recommendedAction" required></textarea>
+                        <label for="image">Image:</label>
+                        <input type="file" class="image" accept="image/*">
+                    </div>
+                </div>
+                <button type="button" id="addFinding">Add Finding</button>
+            </section>
+            <section>
+                <h2>Analyst and Dates</h2>
+                <label for="analyst">Analyst:</label>
+                <input type="text" id="analyst" required>
+                <label for="dateOfDataCollection">Date of Data Collection:</label>
+                <input type="date" id="dateOfDataCollection" required>
+                <label for="dateOfReview">Date of Review:</label>
+                <input type="date" id="dateOfReview" required>
+            </section>
+            <button type="submit">Generate Report</button>
+        </form>
+        <div id="reportOutput" class="report-output"></div>
+        <button id="exportButton" style="display:none;">Export to Word</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
